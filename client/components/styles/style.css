@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  background-color: rgb(196, 209, 228);
+}
+.center {
+  position: absolute;
+  background-color: rgb(166, 230, 158);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}

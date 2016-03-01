@@ -8,13 +8,12 @@ export const insertToDatabase = (data, next) => {
       console.log(err);
       return next();
     }
-    console.log('success', data.id);
+    console.log('Inerted ', data.id);
     next();
   });
 };
 
 export const upload = (req, res) => {
-  console.log('hit');
   if(req.readable) {
     req
     .pipe(csv2())

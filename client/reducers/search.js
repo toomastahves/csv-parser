@@ -2,7 +2,7 @@ import { SEARCH_REQUEST, SEARCH_SUCCESS, SEARCH_ERROR } from '../constants/searc
 
 const initialState = {
   fetching: false,
-  result: '',
+  result: [],
   error: ''
 };
 

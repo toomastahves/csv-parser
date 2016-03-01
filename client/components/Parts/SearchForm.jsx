@@ -4,16 +4,8 @@ export const SearchForm = ({ handleSearch }) => {
   return (
     <form onSubmit={handleSearch}>
       <div>
-        <label htmlFor='name'>{'Name'}</label>
-        <input type='text' name='name' />
-      </div>
-      <div>
-        <label htmlFor='address'>{'Address'}</label>
-        <input type='text' name='address' />
-      </div>
-      <div>
-        <label htmlFor='team'>{'Team'}</label>
-        <input type='text' name='team' />
+        <label htmlFor='query'>{'Search'}</label>
+        <input type='text' name='query' />
       </div>
       <div>
         <button type='submit'>{'Search'}</button>

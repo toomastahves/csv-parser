@@ -4,7 +4,7 @@ import 'purecss/build/pure-min.css';
 
 export const App = ({ children }) => {
   return(
-    <div className='center'>
+    <div>
       {children}
     </div>
   );

@@ -8,7 +8,7 @@ export const insertToDatabase = (data, next) => {
       console.log(err);
       return next();
     }
-    console.log('Inerted ', data.id);
+    console.log('Inserted ', data.id);
     next();
   });
 };

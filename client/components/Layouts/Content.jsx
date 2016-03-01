@@ -8,7 +8,9 @@ export const ContentLayout = (SubComponent) => {
     return (
       <div>
         <Menu />
-        <SubComponent {...props} />
+        <div className='content'>
+          <SubComponent {...props} />
+        </div>
         <Footer />
       </div>
     );

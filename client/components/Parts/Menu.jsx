@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 export const Menu = () => {
   return (
-    <div>
+    <div className='menu'>
       <a href='#/home'>{'Home'}</a>
       <a href='#/upload'>{'Upload'}</a>
       <a href='#/search'>{'Search'}</a>

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 export const HomeContent = () => {
   return (
-    <div>{'some content on home page'}</div>
+    <div className='content'>{'some content on home page'}</div>
   );
 };
 

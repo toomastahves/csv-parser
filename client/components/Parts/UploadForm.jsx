@@ -1,26 +1,22 @@
 import React, { PropTypes } from 'react';
 
-export const UploadForm = ({ handleUpload }) => {
+export const UploadForm = ({ handleUpload, handleSelectFile }) => {
   return (
-    <form onSubmit={handleUpload}>
-      <div>{'Enter email and select CSV file to upload'}</div>
-      <div>
-        <label htmlFor='email'>{'Email'}</label>
-        <input type='text' name='email' />
+    <form onSubmit={handleUpload} className='pure-form pure-form-aligned'>
+      <div className='pure-control-group'>
+        <input placeholder='Enter e-mail' type='text' name='email' />
       </div>
-      <div>
-        <label htmlFor='file'>{'File'}</label>
-        <input type='file' name='file' />
+      <div className='pure-control-group'>
+        <input id='file-upload' onChange={handleSelectFile} type='file' />
       </div>
-      <div>
-        <button>{'Upload'}</button>
-      </div>
+      <button type='submit' className='pure-button pure-button-primary'>{'Upload'}</button>
     </form>
   );
 };
 
 UploadForm.propTypes = {
-  handleUpload: PropTypes.func.isRequired
+  handleUpload: PropTypes.func.isRequired,
+  handleSelectFile: PropTypes.func.isRequired
 };
 
 export default UploadForm;

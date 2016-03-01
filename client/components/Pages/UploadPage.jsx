@@ -2,11 +2,14 @@ import React, { PropTypes } from 'react';
 import ContentLayout from '../Layouts/Content';
 import UploadForm from '../Parts/UploadForm';
 import UploadResult from '../Parts/UploadResult';
+import { connect } from 'react-redux';
+import { uploadRequest } from '../../actions/upload';
 
-export const UploadPage = () => {
+export const UploadPage = ({ dispatch }) => {
   const handleUpload = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const form = new FormData(e.target);
+    dispatch(uploadRequest(form));
   };
   return (
     <div>
@@ -17,7 +20,14 @@ export const UploadPage = () => {
 };
 
 UploadPage.propTypes = {
-
+  dispatch: PropTypes.func.isRequired
 };
 
-export default ContentLayout(UploadPage);
+const mapStateToProps = (state) => {
+  return {
+    result: state.uploadReducer.result,
+    error: state.uploadReducer.error
+  };
+};
+
+export default connect(mapStateToProps)(ContentLayout(UploadPage));

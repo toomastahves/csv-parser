@@ -1,7 +1,8 @@
-import { upload, search } from '../controllers/database';
+import { upload } from '../controllers/upload';
+import { search } from '../controllers/search';
 
 const routes = (app) => {
-  app.get('/upload', upload);
+  app.post('/upload', upload);
   app.get('/search', search);
 };
 

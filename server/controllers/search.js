@@ -1,12 +1,6 @@
-import mysql from 'mysql';
-import config from '../config/';
-
-export const upload = (req, res) => {
-  res.send('upload route');
-};
+import { connection } from '../database/mysql';
 
 export const search = (req, res) => {
-  const connection = mysql.createConnection(config.MYSQL);
   connection.query('SELECT * FROM csvdata', (err, rows) => {
     if(err) {
       console.log(err);

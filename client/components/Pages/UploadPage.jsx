@@ -6,10 +6,14 @@ import { connect } from 'react-redux';
 import { uploadRequest } from '../../actions/upload';
 
 export const UploadPage = ({ dispatch, result, error, progress }) => {
-  const handleUpload = (e) => {
+  const handleUpload = (files) => {
+    files.forEach((file) => {
+      dispatch(uploadRequest(file));
+    });
+  };
+  const handleSendEmail = (e) => {
     e.preventDefault();
-    const form = new FormData(e.target);
-    dispatch(uploadRequest(form));
+    console.log(e.target);
   };
   return (
     <div>
@@ -21,8 +25,8 @@ export const UploadPage = ({ dispatch, result, error, progress }) => {
 
 UploadPage.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  result: PropTypes.string,
-  error: PropTypes.string,
+  result: PropTypes.object,
+  error: PropTypes.object,
   progress: PropTypes.number
 };
 

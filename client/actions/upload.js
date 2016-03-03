@@ -4,7 +4,7 @@ import { UPLOAD_URI } from '../constants/uri';
 export const uploadSuccess = (result) => {
   return {
     type: UPLOAD_SUCCESS,
-    result
+    result: JSON.parse(result)
   };
 };
 
@@ -21,11 +21,13 @@ export const uploadProgress = (progress) => {
   };
 };
 
-export const uploadRequest = (form) => {
+export const uploadRequest = (file) => {
   return dispatch => {
     dispatch(uploadProgress(0));
     const req = new XMLHttpRequest();
     req.open('POST', UPLOAD_URI);
+    const data = new FormData();
+    data.append(file.name, file);
     req.upload.addEventListener('progress', (e2) => {
       let progress = 0;
       if (e2.total !== 0) {
@@ -43,6 +45,6 @@ export const uploadRequest = (form) => {
         dispatch(uploadError(req.responseText));
       }
     };
-    req.send(form);
+    req.send(data);
   };
 };

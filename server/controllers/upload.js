@@ -2,7 +2,7 @@ import through2 from 'through2';
 import csv2 from 'csv2';
 import { connection } from '../database/mysql';
 
-export const insertToDatabase = (chunk, tableName, next) => {
+const insertToDatabase = (chunk, tableName, next) => {
   const data = {
     id: chunk[0],
     name: chunk[1],
@@ -21,7 +21,7 @@ export const insertToDatabase = (chunk, tableName, next) => {
   });
 };
 
-export const createNewTable = (next) => {
+const createNewTable = (next) => {
   // http://stackoverflow.com/a/8084248
   const tableName = Math.random().toString(36).substring(7);
   console.log(tableName);
@@ -55,9 +55,7 @@ export const upload = (req, res) => {
 
         return callback();
       }));
-
       req.on('end', () => {
-        console.log('end');
         // http://stackoverflow.com/a/17678755
         const hrtime = process.hrtime(start);
         const elapsed = parseFloat(hrtime[0] + (hrtime[1] / 1000000).toFixed(3), 10);

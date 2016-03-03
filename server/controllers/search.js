@@ -10,3 +10,13 @@ export const search = (req, res) => {
     res.send(rows);
   });
 };
+
+export const listTables = (req, res) => {
+  connection.query('SHOW TABLES;', (err, list) => {
+    if(err) {
+      console.log(err);
+      return res.status(500).send(err);
+    }
+    res.status(200).json(list);
+  });
+};

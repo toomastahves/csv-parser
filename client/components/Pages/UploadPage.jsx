@@ -5,7 +5,7 @@ import UploadResult from '../Parts/UploadResult';
 import { connect } from 'react-redux';
 import { uploadRequest } from '../../actions/upload';
 
-export const UploadPage = ({ dispatch }) => {
+export const UploadPage = ({ dispatch, result, error, progress }) => {
   const handleUpload = (e) => {
     e.preventDefault();
     const form = new FormData(e.target);
@@ -14,19 +14,23 @@ export const UploadPage = ({ dispatch }) => {
   return (
     <div>
       <UploadForm handleUpload={handleUpload} />
-      <UploadResult />
+      <UploadResult result={result} error={error} progress={progress} />
     </div>
   );
 };
 
 UploadPage.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  dispatch: PropTypes.func.isRequired,
+  result: PropTypes.string,
+  error: PropTypes.string,
+  progress: PropTypes.number
 };
 
 const mapStateToProps = (state) => {
   return {
     result: state.uploadReducer.result,
-    error: state.uploadReducer.error
+    error: state.uploadReducer.error,
+    progress: state.uploadReducer.progress
   };
 };
 

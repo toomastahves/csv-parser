@@ -1,4 +1,4 @@
-import { UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/upload';
+import { UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/upload';
 
 const initialState = {
   uploading: false,
@@ -10,8 +10,6 @@ const initialState = {
 export const uploadReducer = (state = initialState, action) => {
   switch(action.type) {
 
-    case UPLOAD_REQUEST:
-      return Object.assign({}, initialState, { uploading: true });
     case UPLOAD_SUCCESS:
       return Object.assign({}, state, { uploading: false, error: '', result: action.result });
     case UPLOAD_ERROR:

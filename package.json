@@ -44,7 +44,6 @@
     "redux": "^3.3.1",
     "redux-thunk": "^1.0.3",
     "serve-favicon": "^2.3.0",
-    "shortid": "^2.2.4",
     "style-loader": "^0.13.0",
     "through2": "^2.0.1",
     "url-loader": "^0.5.7",

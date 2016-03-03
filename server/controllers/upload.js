@@ -1,6 +1,5 @@
 import through2 from 'through2';
 import csv2 from 'csv2';
-import shortid from 'shortid';
 import { connection } from '../database/mysql';
 
 export const insertToDatabase = (chunk, tableName, next) => {
@@ -23,7 +22,8 @@ export const insertToDatabase = (chunk, tableName, next) => {
 };
 
 export const createNewTable = (next) => {
-  const tableName = shortid.generate();
+  // http://stackoverflow.com/a/8084248
+  const tableName = Math.random().toString(36).substring(7);
   console.log(tableName);
   connection.query(`CREATE TABLE ${tableName} (
     id int not null,
@@ -35,16 +35,19 @@ export const createNewTable = (next) => {
   );`, (err) => {
     if(err) {
       console.log(err);
-      return err;
+      return next(err, null);
     }
 
-    return next(tableName);
+    return next(null, tableName);
   });
 };
 
 export const upload = (req, res) => {
   if(req.readable) {
-    createNewTable((tableName) => {
+    createNewTable((err, tableName) => {
+      if(err) {
+        return res.status(500).json({ error: err });
+      }
       const start = process.hrtime();
       req.pipe(csv2()).pipe(through2.obj((chunk, enc, callback) => {
         if(chunk.length === 6)
@@ -59,7 +62,7 @@ export const upload = (req, res) => {
         const hrtime = process.hrtime(start);
         const elapsed = parseFloat(hrtime[0] + (hrtime[1] / 1000000).toFixed(3), 10);
         console.log(elapsed, 'ms');
-        res.json({ time: elapsed });
+        res.json({ time: elapsed, tableName });
       });
     });
   }

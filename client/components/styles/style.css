@@ -39,3 +39,9 @@ body {
   background-color: rgb(5, 5, 5);
   color: rgb(255, 255, 255);
 }
+
+.upload-result {
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(244, 244, 244);
+}

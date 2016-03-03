@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 
-export const UploadForm = ({ handleUpload, handleSelectFile }) => {
+export const UploadForm = ({ handleUpload }) => {
   return (
     <form onSubmit={handleUpload} className='pure-form pure-form-aligned'>
       <div className='pure-control-group'>
         <input placeholder='Enter e-mail' type='text' name='email' />
       </div>
       <div className='pure-control-group'>
-        <input id='file-upload' onChange={handleSelectFile} type='file' />
+        <input type='file' name='file' />
       </div>
       <button type='submit' className='pure-button pure-button-primary'>{'Upload'}</button>
     </form>
@@ -15,8 +15,7 @@ export const UploadForm = ({ handleUpload, handleSelectFile }) => {
 };
 
 UploadForm.propTypes = {
-  handleUpload: PropTypes.func.isRequired,
-  handleSelectFile: PropTypes.func.isRequired
+  handleUpload: PropTypes.func.isRequired
 };
 
 export default UploadForm;

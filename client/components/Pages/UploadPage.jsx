@@ -11,12 +11,9 @@ export const UploadPage = ({ dispatch }) => {
     const form = new FormData(e.target);
     dispatch(uploadRequest(form));
   };
-  const handleSelectFile = (e) => {
-    console.log(e.target.value);
-  };
   return (
     <div>
-      <UploadForm handleUpload={handleUpload} handleSelectFile={handleSelectFile} />
+      <UploadForm handleUpload={handleUpload} />
       <UploadResult />
     </div>
   );

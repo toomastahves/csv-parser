@@ -1,4 +1,4 @@
-import { UPLOAD_REQUEST, UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/upload';
+import { UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/upload';
 import { UPLOAD_URI } from '../constants/uri';
 
 export const uploadSuccess = () => {
@@ -25,16 +25,15 @@ export const uploadRequest = (form) => {
     dispatch(uploadProgress(0));
     const req = new XMLHttpRequest();
     req.open('POST', UPLOAD_URI);
-
     req.upload.addEventListener('progress', (e2) => {
+      console.log('progress');
       let progress = 0;
       if (e2.total !== 0) {
         progress = parseInt((e2.loaded / e2.total) * 100, 10);
+        dispatch(uploadProgress(progress));
+        console.log(progress);
       }
-      console.log(progress);
-      dispatch(uploadProgress(progress));
     }, false);
-
     req.onreadystatechange = () => {
       console.log(req);
       if(req.readyState === 4 && req.status === 200) {
@@ -44,7 +43,7 @@ export const uploadRequest = (form) => {
         dispatch(uploadError(req.responseText));
       }
     };
-
+    console.log(req);
     req.send(form);
   };
 };

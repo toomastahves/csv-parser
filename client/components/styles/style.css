@@ -46,12 +46,13 @@ body {
   background-color: rgb(244, 244, 244);
 }
 
-.dropzone-style {
+.upload-form {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-.dragdrop-message {
+.dropzone-message {
   padding: 20px;
 }
 

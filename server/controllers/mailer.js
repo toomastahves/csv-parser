@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer';
 import config from '../config/';
 
 export const sendMail = () => {
+  console.log('hit');
   const transporter = nodemailer.createTransport(config.MAILER);
   const mailOptions = {
     from: 'csvparser123@gmail.com', // sender address

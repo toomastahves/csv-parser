@@ -1,31 +1,32 @@
 import React, { PropTypes } from 'react';
 import DatePickerWrapper from './DatepickerWrapper';
 
-export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datepickerVisibility, importdate }) => {
+export const EmailForm = ({ handleSendEmail, validationError, handleDatepickerVisiblity, datePickerVisibility }) => {
   return (
-    <form onSubmit={handleSendEmail} className='pure-form pure-form-aligned'>
-      {'While uploading, you can fill form below if you want results to be sent on e-mail after file is uploaded.'}
-      <div className='pure-control-group'>
-        <input placeholder='Email' type='text' name='email' />
-      </div>
-      <div className='pure-control-group'>
-        <input placeholder='Select import date' type='text' name='importdate' />
-      </div>
-      <div>
-        <input
-          value={importdate}
-          onClick={handleDatepickerVisiblity}
-          className='selectbox-aligned disabled' type='text' placeholder={'Birthday'} id='birthday' disabled autoComplete='off'
-        />
-      {datepickerVisibility && <DatePickerWrapper resultLocationId='importdate' />}
-      </div>
-      <button type='submit' className='pure-button pure-button-primary'>{'Send results to email'}</button>
-    </form>
+    <div className='email-form'>
+      <form onSubmit={handleSendEmail}>
+        <div>{validationError ? '' : 'Please fill form'}</div>
+        <div>
+          <input placeholder='Email' type='text' name='email' className='email-form-input' />
+        </div>
+        <div>
+          <input
+            onClick={handleDatepickerVisiblity} className='importdate-input email-form-input'
+            placeholder='Select import date' id='importdate' disabled autoComplete='off'
+          />
+        {datePickerVisibility && <DatePickerWrapper resultLocationId='importdate' />}
+        </div>
+        <button className='email-form-button' type='submit'>{'Send results to email'}</button>
+      </form>
+    </div>
   );
 };
 
 EmailForm.propTypes = {
-  handleSendEmail: PropTypes.func.isRequired
+  handleSendEmail: PropTypes.func.isRequired,
+  handleDatepickerVisiblity: PropTypes.func.isRequired,
+  datePickerVisibility: PropTypes.bool.isRequired,
+  validationError: PropTypes.bool
 };
 
 export default EmailForm;

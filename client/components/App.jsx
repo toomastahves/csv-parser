@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import './styles/style.css';
+import './styles/emailform.css';
 
 export const App = ({ children }) => {
   return(

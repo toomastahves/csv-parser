@@ -1,0 +1,25 @@
+
+.email-form {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 200px;
+}
+
+.email-form-input {
+  margin: 5px;
+  padding: 5px;
+  width: 200px;
+}
+
+.email-form-button {
+  width: 200px;
+  margin: 5px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.importdate-input {
+  background-color: white;
+  cursor: pointer;
+}

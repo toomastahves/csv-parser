@@ -10,12 +10,10 @@ export const DatePickerWrapper = ({ resultLocationId }) => {
     importDayBox.value = fecha.format(new Date(moment), 'DD MMM YYYY');
   };
   return (
-    <div>
-      <DatePicker
-        onChange={onChange}
-        hideFooter={true}
-      />
-    </div>
+    <DatePicker
+      onChange={onChange}
+      hideFooter={true}
+    />
   );
 };
 

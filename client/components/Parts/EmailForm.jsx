@@ -1,11 +1,22 @@
 import React, { PropTypes } from 'react';
 import DatePickerWrapper from './DatepickerWrapper';
 
-export const EmailForm = ({ handleSendEmail, validationError, handleDatepickerVisiblity, datePickerVisibility }) => {
+export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent }) => {
+
+  if(emailSent) {
+    return (
+      <div>
+        {'Email has been sent.'}
+      </div>
+    );
+  }
+
   return (
     <div className='email-form'>
       <form onSubmit={handleSendEmail}>
-        <div>{validationError ? '' : 'Please fill form'}</div>
+        <div>
+          {'Please fill e-mail form if you wish results to be e-mailed to you.'}
+        </div>
         <div>
           <input placeholder='Email' type='text' name='email' className='email-form-input' />
         </div>
@@ -26,7 +37,7 @@ EmailForm.propTypes = {
   handleSendEmail: PropTypes.func.isRequired,
   handleDatepickerVisiblity: PropTypes.func.isRequired,
   datePickerVisibility: PropTypes.bool.isRequired,
-  validationError: PropTypes.bool
+  emailSent: PropTypes.bool
 };
 
 export default EmailForm;

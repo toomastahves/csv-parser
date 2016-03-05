@@ -2,9 +2,9 @@ import { UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/uplo
 
 const initialState = {
   uploading: false,
-  email: '',
   error: {},
-  result: {}
+  result: {},
+  progress: 0
 };
 
 export const uploadReducer = (state = initialState, action) => {

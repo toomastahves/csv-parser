@@ -1,0 +1,41 @@
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+  margin: 0 0 100px;
+}
+
+.content {
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+  max-width: 980px;
+}
+
+.menu {
+  background-color: rgb(5, 5, 5);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.menu a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(5, 5, 5);
+  color: rgb(255, 255, 255);
+}

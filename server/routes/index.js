@@ -6,7 +6,7 @@ const routes = (app) => {
   app.post('/upload', upload);
   app.get('/mailer', sendMail);
   app.get('/list', listTables);
-  app.get('/search/:query', search);
+  app.get('/search', search);
 };
 
 export default routes;

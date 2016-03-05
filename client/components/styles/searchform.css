@@ -1,0 +1,28 @@
+.table-wrap {
+  margin: 0 auto;
+  margin-bottom: 3.125em;
+  text-align: center;
+}
+
+table > tbody > tr:hover {
+  background-color: rgb(215, 215, 215);
+}
+
+.reactable-filter-input {
+  width: 100%;
+}
+
+.reactable-header-sortable {
+  text-align: center;
+  cursor: pointer;
+}
+
+.reactable-pagination > tr > td > a {
+  text-decoration: none;
+  color: black;
+  padding: 3px;
+}
+
+.reactable-current-page {
+  background-color: rgb(203, 211, 217);
+}

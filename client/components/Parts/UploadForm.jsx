@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import Dropzone from 'react-dropzone';
 import Spinner from './Spinner';
 
-export const UploadForm = ({ handleUpload, progress }) => {
+export const UploadForm = ({ handleUpload, progress, uploadResult }) => {
 
   if(progress > 0 && progress !== 100) {
     return (
@@ -10,6 +10,19 @@ export const UploadForm = ({ handleUpload, progress }) => {
         <Dropzone onDrop={handleUpload}>
           <div className='dropzone-message'>
             <div>{'Please wait, uploading... '}{progress}{'%'}</div>
+            <Spinner />
+          </div>
+        </Dropzone>
+      </div>
+    );
+  }
+
+  if(progress === 100 && uploadResult === null) {
+    return (
+      <div className='upload-form'>
+        <Dropzone onDrop={handleUpload}>
+          <div className='dropzone-message'>
+            <div>{'Upload 100% complete, finishing...'}</div>
             <Spinner />
           </div>
         </Dropzone>
@@ -28,7 +41,8 @@ export const UploadForm = ({ handleUpload, progress }) => {
 
 UploadForm.propTypes = {
   handleUpload: PropTypes.func.isRequired,
-  progress: PropTypes.number
+  progress: PropTypes.number,
+  uploadResult: PropTypes.object
 };
 
 export default UploadForm;

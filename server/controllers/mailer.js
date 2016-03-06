@@ -8,6 +8,7 @@ export const sendMail = (req, res) => {
   const importdate = query.importdate;
   const time = query.time;
   const tableName = query.tableName;
+  const rowsCount = query.rowsCount;
   console.log(query);
 
   const transporter = nodemailer.createTransport(config.MAILER);
@@ -18,7 +19,8 @@ export const sendMail = (req, res) => {
     html: `
       <div>File has been uploaded to database.</div>
       <div>Import date: ${importdate}</div>
-      <div>Time spent: ${time}</div>
+      <div>Rows count: ${rowsCount}</div>
+      <div>Time spent: ${time} ms</div>
       <div>Uploaded into table: ${tableName}</div>
     `
   };

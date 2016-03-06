@@ -1,11 +1,11 @@
 import { UPLOAD_SUCCESS, UPLOAD_ERROR, UPLOAD_PROGRESS } from '../constants/upload';
 import { UPLOAD_URI } from '../constants/uri';
-import { emailSentToggle } from './email';
+import { emailSentStatus } from './email';
 
-export const uploadSuccess = (result) => {
+export const uploadSuccess = (uploadResult) => {
   return {
     type: UPLOAD_SUCCESS,
-    result: JSON.parse(result)
+    uploadResult: JSON.parse(uploadResult)
   };
 };
 
@@ -25,7 +25,7 @@ export const uploadProgress = (progress) => {
 export const uploadRequest = (file) => {
   return dispatch => {
     dispatch(uploadProgress(0));
-    dispatch(emailSentToggle(false));
+    dispatch(emailSentStatus(false));
     const req = new XMLHttpRequest();
     req.open('POST', UPLOAD_URI);
     const data = new FormData();
@@ -41,6 +41,7 @@ export const uploadRequest = (file) => {
     req.onreadystatechange = () => {
       if(req.readyState === 4 && req.status === 200) {
         dispatch(uploadSuccess(req.responseText));
+        dispatch(emailSentStatus(false));
       }
       if(req.readyState === 4 && req.status === 500) {
         dispatch(uploadError(req.responseText));

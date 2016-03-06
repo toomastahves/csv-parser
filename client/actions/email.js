@@ -7,7 +7,7 @@ const validateEmail = (email) => {
   return re.test(email);
 };
 
-export const emailSentToggle = (emailSent) => {
+export const emailSentStatus = (emailSent) => {
   return {
     type: EMAIL_SENT_TOGGLE,
     emailSent
@@ -18,11 +18,11 @@ export const sendEmail = (email, importdate, result) => {
   console.log('Sending e-mail');
   return dispatch => {
     const req = new XMLHttpRequest();
-    const params = `email=${email}&importdate=${importdate}&time=${result.time}&tableName=${result.tableName}`;
+    const params = `email=${email}&importdate=${importdate}&time=${result.time}&tableName=${result.tableName}&rowsCount=${result.rowsCount}`;
     req.open('GET', `${EMAIL_URI}?${params}`);
     req.onreadystatechange = () => {
       if(req.readyState === 4 && req.status === 200) {
-        dispatch(emailSentToggle(true));
+        dispatch(emailSentStatus(true));
       }
       if(req.readyState === 4 && req.status === 500) {
         console.log(req.responseText);

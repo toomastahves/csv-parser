@@ -24,6 +24,7 @@ File upload too slow on big files, because it inserts one row at a time.
 On multiple file uploads, it shows results for just one file.  
 Upload time is calculated upon request end, not upon last insertion to database.  
 Implement proper error handling, so Node won't crash.  
+
 ---
 ### Todos
 Write unit tests.  

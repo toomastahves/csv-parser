@@ -2,10 +2,9 @@ import React, { PropTypes } from 'react';
 import { Table, Thead, Th } from 'reactable';
 
 export const SearchResult = ({ result, fetchingSearchResults }) => {
-  if(result.length === 0) return <div></div>;
-  if(fetchingSearchResults) return <div>{'Searching...'}</div>;
+  if(result.length === 0) return <div className='search-info'>{'No results'}</div>;
+  if(fetchingSearchResults) return <div className='search-info'>{'Searching...'}</div>;
 
-  console.log(result);
   return (
     <div>
       <Table

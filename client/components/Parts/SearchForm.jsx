@@ -3,10 +3,10 @@ import shortid from 'shortid';
 
 export const SearchForm = ({ handleSearch, tableList }) => {
   return (
-    <form onSubmit={handleSearch} className='pure-form'>
+    <form onSubmit={handleSearch} className='search-form'>
       <select name='tablename'>{tableList.map(opt => <option key={shortid.generate()}>{opt}</option>)}</select>
       <input placeholder='Search query' type='text' name='query' />
-      <button type='submit' className='pure-button pure-button-primary'>{'Search'}</button>
+      <button type='submit'>{'Search'}</button>
     </form>
   );
 };

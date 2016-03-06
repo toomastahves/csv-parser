@@ -21,7 +21,6 @@ export const listTables = (req, res) => {
       return res.status(500).send(err);
     }
     const tablenames = list.map(t => t['Tables_in_csvparserdb']);
-    console.log(tablenames);
     res.status(200).json(tablenames);
   });
 };

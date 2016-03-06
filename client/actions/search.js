@@ -33,7 +33,6 @@ export const search = (query, tableName) => {
     req.open('GET', `${SEARCH_URI}?${params}`);
 
     req.onreadystatechange = () => {
-      console.log(req);
       if(req.readyState === 4 && req.status === 200) {
         dispatch(searchSuccess(req.responseText));
       }

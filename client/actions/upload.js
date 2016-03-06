@@ -42,7 +42,7 @@ export const uploadRequest = (file) => {
       if(req.readyState === 4 && req.status === 200) {
         dispatch(uploadSuccess(req.responseText));
       }
-      if(req.readyState === 4 && req.status === 400) {
+      if(req.readyState === 4 && req.status === 500) {
         dispatch(uploadError(req.responseText));
       }
     };

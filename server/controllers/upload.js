@@ -11,7 +11,7 @@ const insertToDatabase = (chunk, tableName, next) => {
     address2: chunk[4],
     team: chunk[5]
   };
-  connection.query(`INSERT INTO ${tableName} SET ?`, data, (err, result) => {
+  connection.query(`INSERT INTO ${tableName} SET ?`, data, (err) => {
     if(err) {
       console.log(err);
       return next();

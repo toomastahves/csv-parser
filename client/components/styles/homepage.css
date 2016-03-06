@@ -1,0 +1,11 @@
+.content {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  text-align: left;
+  max-width: 480px;
+}
+
+h2 {
+  color: rgb(70, 69, 69);
+}

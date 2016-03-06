@@ -3,7 +3,6 @@ import config from '../config/';
 import url from 'url';
 
 export const sendMail = (req, res) => {
-  console.log('hit');
   const query = url.parse(req.url, true).query;
   const email = query.email;
   const importdate = query.importdate;

@@ -24,7 +24,7 @@ const insertToDatabase = (chunk, tableName, next) => {
 const createNewTable = (next) => {
   // http://stackoverflow.com/a/8084248
   const tableName = Math.random().toString(36).substring(7);
-  console.log(tableName);
+  console.log('Created table', tableName);
   connection.query(`CREATE TABLE ${tableName} (
     id int not null,
     name varchar(50),

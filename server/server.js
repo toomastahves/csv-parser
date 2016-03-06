@@ -22,8 +22,9 @@ routes(app);
 app.use(express.static('public'));
 app.use(favicon('public/favicon.png'));
 
-app.listen(3000, () => {
-  console.log('Express started');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Express started at ${port}`);
 });
 
 if(process.env.NODE_ENV !== 'production') {

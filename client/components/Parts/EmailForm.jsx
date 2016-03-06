@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import DatePickerWrapper from './DatepickerWrapper';
+import DatePickerWrapper from './DatePickerWrapper';
 
 export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent }) => {
 

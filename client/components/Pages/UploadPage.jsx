@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { uploadRequest } from '../../actions/upload';
 import { validateFormValues, toggleDatepickerVisibility } from '../../actions/email';
 
-export const UploadPage = ({ dispatch, uploadResult, error, progress, datePickerVisibility, emailSent }) => {
+export const UploadPage = ({ dispatch, uploadResult, error, progress, datePickerVisibility, emailSent, sendingEmail }) => {
   const handleUpload = (files) => {
     files.forEach((file) => {
       dispatch(uploadRequest(file));
@@ -39,6 +39,7 @@ export const UploadPage = ({ dispatch, uploadResult, error, progress, datePicker
         handleDatepickerVisiblity={handleDatepickerVisiblity}
         datePickerVisibility={datePickerVisibility}
         emailSent={emailSent}
+        sendingEmail={sendingEmail}
       />
     </div>
   );
@@ -50,7 +51,8 @@ UploadPage.propTypes = {
   error: PropTypes.object,
   progress: PropTypes.number,
   datePickerVisibility: PropTypes.bool.isRequired,
-  emailSent: PropTypes.bool
+  emailSent: PropTypes.bool,
+  sendingEmail: PropTypes.bool
 };
 
 const mapStateToProps = (state) => {
@@ -59,7 +61,8 @@ const mapStateToProps = (state) => {
     error: state.uploadReducer.error,
     progress: state.uploadReducer.progress,
     datePickerVisibility: state.emailReducer.datePickerVisibility,
-    emailSent: state.emailReducer.emailSent
+    emailSent: state.emailReducer.emailSent,
+    sendingEmail: state.emailReducer.sendingEmail
   };
 };
 

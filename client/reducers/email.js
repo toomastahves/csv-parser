@@ -1,7 +1,7 @@
-import { VALIDATE_EMAIL_FORM, TOGGLE_DATEPICKER_VISIBILITY, EMAIL_SENT_TOGGLE } from '../constants/email';
+import { VALIDATE_EMAIL_FORM, TOGGLE_DATEPICKER_VISIBILITY, EMAIL_SENT_TOGGLE, SENDING_EMAIL } from '../constants/email';
 
 const initialState = {
-  fetching: false,
+  sendingEmail: false,
   result: '',
   datePickerVisibility: false,
   emailSent: false
@@ -10,6 +10,8 @@ const initialState = {
 export const emailReducer = (state = initialState, action) => {
   switch(action.type) {
 
+    case SENDING_EMAIL:
+      return Object.assign({}, state, { sendingEmail: action.sending });
     case VALIDATE_EMAIL_FORM:
       return Object.assign({}, state, { validationError: false, fetching: true, result: action.result });
     case TOGGLE_DATEPICKER_VISIBILITY:

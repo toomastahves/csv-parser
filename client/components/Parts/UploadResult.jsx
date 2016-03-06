@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import EmailForm from './EmailForm';
 
-export const UploadResult = ({ uploadResult, error, progress, handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent }) => {
+export const UploadResult = ({ uploadResult, error, handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent, sendingEmail }) => {
   if(uploadResult === null) return <div></div>;
 
   return (
@@ -17,6 +17,7 @@ export const UploadResult = ({ uploadResult, error, progress, handleSendEmail, h
         handleDatepickerVisiblity={handleDatepickerVisiblity}
         datePickerVisibility={datePickerVisibility}
         emailSent={emailSent}
+        sendingEmail={sendingEmail}
       />
     </div>
   );
@@ -29,7 +30,8 @@ UploadResult.propTypes = {
   handleSendEmail: PropTypes.func.isRequired,
   handleDatepickerVisiblity: PropTypes.func.isRequired,
   datePickerVisibility: PropTypes.bool.isRequired,
-  emailSent: PropTypes.bool
+  emailSent: PropTypes.bool,
+  sendingEmail: PropTypes.bool
 };
 
 export default UploadResult;

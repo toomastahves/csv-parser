@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import DatePickerWrapper from './DatePickerWrapper';
+import Spinner from './Spinner';
 
-export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent }) => {
-
+export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent, sendingEmail }) => {
+  console.log(sendingEmail);
   if(emailSent) {
     return (
       <div>
@@ -28,6 +29,7 @@ export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePick
         {datePickerVisibility && <DatePickerWrapper resultLocationId='importdate' />}
         </div>
         <button className='email-form-button' type='submit'>{'Send results to email'}</button>
+        <div>{sendingEmail && <Spinner />}</div>
       </form>
     </div>
   );
@@ -37,7 +39,8 @@ EmailForm.propTypes = {
   handleSendEmail: PropTypes.func.isRequired,
   handleDatepickerVisiblity: PropTypes.func.isRequired,
   datePickerVisibility: PropTypes.bool.isRequired,
-  emailSent: PropTypes.bool
+  emailSent: PropTypes.bool,
+  sendingEmail: PropTypes.bool
 };
 
 export default EmailForm;

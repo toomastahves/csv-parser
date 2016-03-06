@@ -1,4 +1,4 @@
-import { VALIDATE_EMAIL_FORM, TOGGLE_DATEPICKER_VISIBILITY, EMAIL_SENT_TOGGLE } from '../constants/email';
+import { VALIDATE_EMAIL_FORM, TOGGLE_DATEPICKER_VISIBILITY, EMAIL_SENT_TOGGLE, SENDING_EMAIL } from '../constants/email';
 import { EMAIL_URI } from '../constants/uri';
 
 // http://stackoverflow.com/a/46181
@@ -14,18 +14,28 @@ export const emailSentStatus = (emailSent) => {
   };
 };
 
+export const sendingEmail = (sending) => {
+  return {
+    type: SENDING_EMAIL,
+    sending
+  };
+};
+
 export const sendEmail = (email, importdate, result) => {
   console.log('Sending e-mail');
   return dispatch => {
+    dispatch(sendingEmail(true));
     const req = new XMLHttpRequest();
     const params = `email=${email}&importdate=${importdate}&time=${result.time}&tableName=${result.tableName}&rowsCount=${result.rowsCount}`;
     req.open('GET', `${EMAIL_URI}?${params}`);
     req.onreadystatechange = () => {
       if(req.readyState === 4 && req.status === 200) {
         dispatch(emailSentStatus(true));
+        dispatch(sendingEmail(false));
       }
       if(req.readyState === 4 && req.status === 500) {
         console.log(req.responseText);
+        dispatch(sendingEmail(false));
       }
     };
     req.send(params);

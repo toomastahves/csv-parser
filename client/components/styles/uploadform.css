@@ -36,3 +36,8 @@
   border-right-color: transparent;
   border-radius: 50%;
 }
+
+.note {
+  text-align: center;
+  padding: 10px;
+}

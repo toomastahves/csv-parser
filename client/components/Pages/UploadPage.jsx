@@ -23,6 +23,13 @@ export const UploadPage = ({ dispatch, result, error, progress, datePickerVisibi
   };
   return (
     <div>
+      <div className='note'>
+        {'NOTE: Heroku uses JawsDB with 5mb of free space.'}
+        <br />
+        {'Use local database for bigger files.'}
+        <br />
+        {'Small .CSV file for testing: '}<a href='smalltestdata.csv'>{'smalltestdata.csv'}</a>
+      </div>
       <UploadForm handleUpload={handleUpload} progress={progress} />
       <UploadResult
         result={result}

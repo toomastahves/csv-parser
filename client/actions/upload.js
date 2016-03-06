@@ -25,7 +25,7 @@ export const uploadProgress = (progress) => {
 export const uploadRequest = (file) => {
   return dispatch => {
     dispatch(uploadProgress(0));
-    dispatch(emailSentToggle());
+    dispatch(emailSentToggle(false));
     const req = new XMLHttpRequest();
     req.open('POST', UPLOAD_URI);
     const data = new FormData();

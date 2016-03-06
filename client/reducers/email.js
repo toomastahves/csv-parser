@@ -4,7 +4,7 @@ const initialState = {
   fetching: false,
   result: '',
   datePickerVisibility: false,
-  emailSent: true
+  emailSent: false
 };
 
 export const emailReducer = (state = initialState, action) => {
@@ -15,7 +15,7 @@ export const emailReducer = (state = initialState, action) => {
     case TOGGLE_DATEPICKER_VISIBILITY:
       return Object.assign({}, state, { datePickerVisibility: !state.datePickerVisibility });
     case EMAIL_SENT_TOGGLE:
-      return Object.assign({}, state, { emailSent: !state.emailSent });
+      return Object.assign({}, state, { emailSent: action.emailSent });
     default:
       return state;
   }

@@ -7,9 +7,10 @@ const validateEmail = (email) => {
   return re.test(email);
 };
 
-export const emailSentToggle = () => {
+export const emailSentToggle = (emailSent) => {
   return {
-    type: EMAIL_SENT_TOGGLE
+    type: EMAIL_SENT_TOGGLE,
+    emailSent
   };
 };
 
@@ -20,9 +21,11 @@ export const sendEmail = (email, importdate, result) => {
     const params = `email=${email}&importdate=${importdate}&time=${result.time}&tableName=${result.tableName}`;
     req.open('GET', `${EMAIL_URI}?${params}`);
     req.onreadystatechange = () => {
-      console.log(req.responseText);
       if(req.readyState === 4 && req.status === 200) {
-        dispatch(emailSentToggle());
+        dispatch(emailSentToggle(true));
+      }
+      if(req.readyState === 4 && req.status === 500) {
+        console.log(req.responseText);
       }
     };
     req.send(params);

@@ -24,7 +24,7 @@ export const UploadPage = ({ dispatch, uploadResult, error, progress, datePicker
   return (
     <div>
       <div className='note'>
-        {'NOTE: Heroku uses JawsDB with 5mb of free space.'}
+        {'NOTE: Heroku uses JawsDB with 5mb of free space and query limits.'}
         <br />
         {'Use local database for bigger files.'}
         <br />

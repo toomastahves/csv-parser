@@ -7,9 +7,9 @@ export const UploadResult = ({ uploadResult, error, handleSendEmail, handleDatep
   return (
     <div>
       <div className='upload-result'>
-        {uploadResult ? <div>{'Total time: '}{uploadResult.time}{' ms'}</div> : <div></div>}
-        {uploadResult ? <div>{'Rows count: '}{uploadResult.rowsCount}</div> : <div></div>}
-        {uploadResult ? <div>{'Data is inserted into table: '}{uploadResult.tableName}</div> : <div></div>}
+        <div>{'Total time: '}{uploadResult.time}{' ms'}</div>
+        <div>{'Rows count: '}{uploadResult.rowsCount}</div>
+        <div>{'Data is inserted into table: '}{uploadResult.tableName}</div>
         {error ? <div>{error.error}</div> : <div></div>}
       </div>
       <EmailForm

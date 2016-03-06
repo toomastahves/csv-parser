@@ -7,6 +7,7 @@ const app = express();
 
 app.use((req, res, next) => {
   // http://www.fingersdancing.net/2012/12/nodejs-connection-times-out-after-2.html
+  // TODO: Find better solution, currently all requests without timeout
   res.setTimeout(0);
   next();
 });

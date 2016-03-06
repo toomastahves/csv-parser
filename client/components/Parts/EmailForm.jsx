@@ -3,11 +3,10 @@ import DatePickerWrapper from './DatePickerWrapper';
 import Spinner from './Spinner';
 
 export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePickerVisibility, emailSent, sendingEmail }) => {
-  console.log(sendingEmail);
   if(emailSent) {
     return (
-      <div>
-        {'Email has been sent.'}
+      <div className='note'>
+        {'E-mail has been sent.'}
       </div>
     );
   }
@@ -29,7 +28,7 @@ export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePick
         {datePickerVisibility && <DatePickerWrapper resultLocationId='importdate' />}
         </div>
         <button className='email-form-button' type='submit'>{'Send results to email'}</button>
-        <div>{sendingEmail && <Spinner />}</div>
+        <div className='note'>{sendingEmail && <Spinner />}</div>
       </form>
     </div>
   );

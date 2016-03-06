@@ -23,7 +23,7 @@ export const EmailForm = ({ handleSendEmail, handleDatepickerVisiblity, datePick
         <div>
           <input
             onClick={handleDatepickerVisiblity} className='importdate-input email-form-input'
-            placeholder='Select import date' id='importdate' disabled autoComplete='off'
+            placeholder='Select import date' id='importdate' autoComplete='off'
           />
         {datePickerVisibility && <DatePickerWrapper resultLocationId='importdate' />}
         </div>

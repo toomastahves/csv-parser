@@ -1,7 +1,7 @@
 import config from '../config/';
 import mysql from 'mysql';
 
-export const connection = mysql.createConnection(config.MYSQL);
+export const connection = mysql.createConnection(`${config.MYSQL}`);
 
 connection.connect((err) => {
   if (err) {

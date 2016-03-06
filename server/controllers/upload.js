@@ -60,7 +60,7 @@ export const upload = (req, res) => {
         const hrtime = process.hrtime(start);
         const elapsed = parseFloat(hrtime[0] + (hrtime[1] / 1000000).toFixed(3), 10);
         console.log(elapsed, 'ms');
-        res.json({ time: elapsed, tableName });
+        res.status(200).json({ time: elapsed, tableName });
       });
     });
   }

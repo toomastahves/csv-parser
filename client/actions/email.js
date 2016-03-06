@@ -20,6 +20,7 @@ export const sendEmail = (email, importdate, result) => {
     const params = `email=${email}&importdate=${importdate}&time=${result.time}&tableName=${result.tableName}`;
     req.open('GET', `${EMAIL_URI}?${params}`);
     req.onreadystatechange = () => {
+      console.log(req.responseText);
       if(req.readyState === 4 && req.status === 200) {
         dispatch(emailSentToggle());
       }

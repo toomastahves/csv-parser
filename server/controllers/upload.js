@@ -55,11 +55,10 @@ export const upload = (req, res) => {
       (chunk, enc, callback) => {
         // Inserting one row at a time
         if(chunk.length === 6) {
-          insertToDatabase(chunk, tableName, callback);
           rowsCount++;
-        } else {
-          return callback();
+          return insertToDatabase(chunk, tableName, callback);
         }
+        return callback();
       },
       // Handling extra buffer before finishing request
       (cb) => {

@@ -8,7 +8,7 @@ export const HomeContent = () => {
         <div>{'git clone https://github.com/toomastahves/csv-parser'}</div>
         <div>{'npm install'}</div>
         <div>{'npm start'}</div>
-        <div>{'http://localhost:1337/'}</div>
+        <div>{'Dev server available at http://localhost:1337/'}</div>
         <div>{'Configure MySQL and E-mail connections in server/config/index.js file'}</div>
         <div>{'Optional: If you run API on different port other than 3000, configure client/constants/uri.js and server/server.js'}</div>
         <div>{'Upload file with 6 columns (int, string, int, string, string, string), example:'}</div>

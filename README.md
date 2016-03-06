@@ -2,7 +2,7 @@
 git clone https://github.com/toomastahves/csv-parser  
 npm install  
 npm start  
-[http://localhost:1337](http://localhost:1337)  
+Dev server available at [http://localhost:1337](http://localhost:1337)  
 Configure MySQL and E-mail connections in server/config/index.js file  
 Optional: If you run API on different port other than 3000, configure client/constants/uri.js and server/server.js  
 Upload file with 6 columns (int, string, int, string, string, string), example:  
